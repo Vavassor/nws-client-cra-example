@@ -1,0 +1,25 @@
+{
+  "name": "nws-client-cra-example",
+  "version": "1.0.0",
+  "description": "This repository contains a deployment of the Create React App example project in the [NWS client examples repository](https://github.com/Vavassor/nws-client-examples).",
+  "main": "server.js",
+  "scripts": {
+    "build": "cd app && yarn build",
+    "install": "cd app && yarn install",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vavassor/nws-client-cra-example.git"
+  },
+  "author": "Andrew Dawson <dawso.andrew@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Vavassor/nws-client-cra-example/issues"
+  },
+  "homepage": "https://github.com/Vavassor/nws-client-cra-example#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}

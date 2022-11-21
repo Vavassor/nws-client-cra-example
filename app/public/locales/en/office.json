@@ -1,0 +1,16 @@
+{
+  "officeHeadlinesSection": {
+    "heading": "News Headlines",
+    "noHeadlinesMessage": "No news headlines."
+  },
+  "officeLinksSection": {
+    "heading": "Links",
+    "latestRelatedTextProductsLink": "Latest related text products"
+  },
+  "officeSummarySection": {
+    "contactAddress": "Address {{streetAddress}} {{locality}}, {{region}} {{postalCode}}",
+    "contactFaxNumber": "Fax {{faxNumber}}",
+    "contactPhoneNumber": "Telephone {{phoneNumber}}",
+    "heading": "NWS Forecast Office {{officeName}}"
+  }
+}

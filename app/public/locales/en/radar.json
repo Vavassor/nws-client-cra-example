@@ -1,0 +1,5 @@
+{
+  "radarStationSection": {
+    "stationType": "Station type: {{type}}"
+  }
+}
