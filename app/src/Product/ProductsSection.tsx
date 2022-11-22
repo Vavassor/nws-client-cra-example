@@ -1,6 +1,7 @@
 import {
   Box,
   Heading,
+  Link,
   Table,
   TableContainer,
   Tbody,
@@ -15,7 +16,7 @@ import { getProducts } from "@vavassor/nws-client";
 import dayjs from "dayjs";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Link, useSearchParams } from "react-router-dom";
+import { Link as RouterLink, useSearchParams } from "react-router-dom";
 
 export const ProductsSection = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -53,7 +54,7 @@ export const ProductsSection = () => {
             {products?.["@graph"].map((product) => (
               <Tr key={product.id}>
                 <Td maxWidth="150px">
-                  <Link to={`/products/${product.id}`}>
+                  <Link as={RouterLink} to={`/products/${product.id}`}>
                     <Text
                       overflow="hidden"
                       textOverflow="ellipsis"
