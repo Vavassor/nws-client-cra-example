@@ -24,8 +24,10 @@
     "heading": "{{name}} station"
   },
   "stationsSection": {
+    "areaFieldLabel": "Area",
     "heading": "Stations",
     "idTableHeader": "ID",
-    "nameTableHeader": "Name"
+    "nameTableHeader": "Name",
+    "searchButtonLabel": "Search"
   }
 }
