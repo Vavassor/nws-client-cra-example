@@ -135,7 +135,7 @@ export const RecentObservationsSection: FC<RecentObservationsSectionProps> = ({
       <Heading as="h2" px={8} size="lg">
         {t("recentObservationsSection.heading")}
       </Heading>
-      {!!formattedObservations && formattedObservations.length > 0 && (
+      {!!formattedObservations && formattedObservations.length > 0 ? (
         <TableContainer>
           <Table variant="striped">
             <Thead>
@@ -284,6 +284,8 @@ export const RecentObservationsSection: FC<RecentObservationsSectionProps> = ({
             </Tbody>
           </Table>
         </TableContainer>
+      ) : (
+        <Text px={8}>{t("recentObservationsSection.noResultsMessage")}</Text>
       )}
     </Box>
   );

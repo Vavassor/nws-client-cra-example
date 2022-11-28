@@ -8,6 +8,7 @@
     "heatIndexTableHeader": "Heat index ({{unit}})",
     "maxTemperatureLast24HoursTableHeader": "24 hr max",
     "minTemperatureLast24HoursTableHeader": "24 hr min",
+    "noResultsMessage": "No recent observations.",
     "precipitationTableHeader": "Precipitation (<1>{{unit}}</1>)",
     "pressureTableHeader": "Pressure",
     "relativeHumidityTableHeader": "Relative Humidity ({{unit}})",

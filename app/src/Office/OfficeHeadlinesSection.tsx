@@ -31,10 +31,10 @@ export const OfficeHeadlinesSection: FC<Props> = ({ officeId }) => {
         {t("officeHeadlinesSection.heading")}
       </Heading>
       {!!headlines && headlines["@graph"].length > 0 ? (
-        <UnorderedList>
+        <UnorderedList px={8}>
           {headlines?.["@graph"].map((headline) => (
             <ListItem>
-              <Link href={headline.link}>{headline.name}</Link>
+              <Link href={headline.link}>{headline.title}</Link>
             </ListItem>
           ))}
         </UnorderedList>
