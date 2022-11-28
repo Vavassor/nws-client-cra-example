@@ -1,9 +1,10 @@
-import { Box, Heading, Text } from "@chakra-ui/react";
+import { Box, Button, Heading, Text } from "@chakra-ui/react";
 import { useQuery } from "@tanstack/react-query";
-import { getAlertGeoJson } from "@vavassor/nws-client";
+import { getAlertCap, getAlertGeoJson } from "@vavassor/nws-client";
 import { FC } from "react";
 import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
+import { saveTextFile } from "../Common/SaveFile";
 
 export const AlertSection: FC = () => {
   const { alertId } = useParams();
@@ -15,6 +16,11 @@ export const AlertSection: FC = () => {
     }
   );
   const { i18n, t } = useTranslation("forecast");
+
+  const handleClickDownloadCapXml = async () => {
+    const cap = await getAlertCap({ id: alertId! });
+    saveTextFile(cap, `${alert?.properties.event}.xml` ?? undefined);
+  };
 
   return (
     <Box as="section" borderRadius="lg" borderWidth="1px" px={8} py={4}>
@@ -69,6 +75,9 @@ export const AlertSection: FC = () => {
             {t("alertSection.affectedAreasHeading")}
           </Heading>
           <Text>{alert.properties.areaDesc}</Text>
+          <Button mt={8} onClick={handleClickDownloadCapXml}>
+            {t("alertSection.downloadCapXmlButtonLabel")}
+          </Button>
         </>
       )}
     </Box>

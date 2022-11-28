@@ -1,4 +1,4 @@
-import { Box, Heading, Link, Text, UnorderedList } from "@chakra-ui/react";
+import { Box, Heading, Link } from "@chakra-ui/react";
 import { useQuery } from "@tanstack/react-query";
 import { getStationJsonLd, getZoneByUriJsonLd } from "@vavassor/nws-client";
 import { FC } from "react";

@@ -3,6 +3,7 @@
     "actionRecommendedHeading": "Action recommended",
     "affectedAreasHeading": "Affected areas",
     "descriptionHeading": "Description",
+    "downloadCapXmlButtonLabel": "Download CAP XML",
     "effectiveTimeRange": "Effective {{timeRange}}",
     "issuedByHeading": "Issued by",
     "summaryHeading": "Summary"
