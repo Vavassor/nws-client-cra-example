@@ -27,7 +27,9 @@
     "areaFieldLabel": "Area",
     "heading": "Stations",
     "idTableHeader": "ID",
+    "loadMoreButtonLabel": "Load more",
     "nameTableHeader": "Name",
+    "noStationsMessage": "No stations found.",
     "searchButtonLabel": "Search"
   }
 }
