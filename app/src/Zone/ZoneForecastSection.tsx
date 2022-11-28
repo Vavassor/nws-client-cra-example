@@ -1,4 +1,4 @@
-import { Box, Heading, Text } from "@chakra-ui/react";
+import { Box, Heading, SkeletonText, Text } from "@chakra-ui/react";
 import { useQuery } from "@tanstack/react-query";
 import { getZoneForecastJsonLd } from "@vavassor/nws-client";
 import { FC, useMemo } from "react";
@@ -14,11 +14,13 @@ export const ZoneForecastSection: FC<ZoneForecastSectionProps> = ({
   zoneId,
 }) => {
   const { i18n, t } = useTranslation("zone");
-  const { data: forecast } = useQuery(
+  const { data: forecast, isLoading } = useQuery(
     ["zoneForecast", type, zoneId],
     () => getZoneForecastJsonLd({ type: type! as any, zoneId: zoneId! }),
     {
       enabled: !!zoneId,
+      refetchOnWindowFocus: false,
+      retry: false,
     }
   );
 
@@ -46,7 +48,7 @@ export const ZoneForecastSection: FC<ZoneForecastSectionProps> = ({
 
   return (
     <Box as="section" borderRadius="lg" borderWidth="1px" py={4}>
-      {!!formattedForecast && (
+      {!!formattedForecast ? (
         <>
           <Heading as="h2" px={8} size="md">
             <Trans i18nKey="zoneForecastSection.heading" t={t}>
@@ -58,6 +60,10 @@ export const ZoneForecastSection: FC<ZoneForecastSectionProps> = ({
           </Heading>
           <Text px={8}>{formattedForecast.detailedForecast}</Text>
         </>
+      ) : isLoading ? (
+        <SkeletonText px={8} />
+      ) : (
+        <Text px={8}>{t("zoneForecastSection.noForecastMessage")}</Text>
       )}
     </Box>
   );
