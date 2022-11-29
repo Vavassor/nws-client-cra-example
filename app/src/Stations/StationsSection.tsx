@@ -46,10 +46,7 @@ export const StationsSection = () => {
             limit: 25,
             state: [urlSearchParams.get("areaCode")!],
           }),
-    getNextPageParam: (lastPage, pages) => {
-      console.log(lastPage.pagination?.next);
-      return lastPage.pagination?.next;
-    },
+    getNextPageParam: (lastPage, pages) => lastPage.pagination?.next,
   });
   const { t } = useTranslation("station");
 

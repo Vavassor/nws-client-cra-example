@@ -7,8 +7,11 @@
   },
   "productsSection": {
     "heading": "Products",
-    "nameTableHeader": "Name",
     "officeTableHeader": "Office",
-    "timeTableHeader": "Time"
+    "nameTableHeader": "Name",
+    "noResultsMessage": "No products found.",
+    "searchButtonLabel": "Search",
+    "timeTableHeader": "Time",
+    "typeFieldLabel": "Type"
   }
 }
