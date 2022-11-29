@@ -20,7 +20,11 @@
   },
   "localInformationCard": {
     "forecastOfficeLink": "Local forecast office",
-    "heading": "Local Information"
+    "heading": "Local Information",
+    "stationsLink": "Nearby observation stations"
+  },
+  "localStationsSection": {
+    "heading": "Local stations"
   },
   "todaysConditionsCard": {
     "dewPoint": "Dew point: {{dewPoint}}",

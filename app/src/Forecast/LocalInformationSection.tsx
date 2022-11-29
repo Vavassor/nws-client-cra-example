@@ -20,6 +20,14 @@ export const LocalInformationSection: FC = () => {
               {t("localInformationCard.forecastOfficeLink")}
             </Link>
           </ListItem>
+          <ListItem>
+            <Link
+              as={RouterLink}
+              to={`local-stations?gridId=${point.properties.gridId}&gridX=${point.properties.gridX}&gridY=${point.properties.gridY}`}
+            >
+              {t("localInformationCard.stationsLink")}
+            </Link>
+          </ListItem>
         </UnorderedList>
       )}
     </Box>

@@ -44,7 +44,7 @@ export const StationsSection = () => {
         ? getStationsByUriGeoJson({ uri: pageParam })
         : getStationsGeoJson({
             limit: 25,
-            state: [urlSearchParams.get("areaCode")!],
+            state: urlSearchParams.getAll("areaCode")!,
           }),
     getNextPageParam: (lastPage, pages) => lastPage.pagination?.next,
   });

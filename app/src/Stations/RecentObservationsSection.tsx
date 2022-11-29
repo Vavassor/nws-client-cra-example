@@ -1,6 +1,8 @@
 import {
   Box,
   Heading,
+  Skeleton,
+  Stack,
   Table,
   TableContainer,
   Tbody,
@@ -32,7 +34,7 @@ interface RecentObservationsSectionProps {
 export const RecentObservationsSection: FC<RecentObservationsSectionProps> = ({
   stationId,
 }) => {
-  const { data: observations } = useQuery(
+  const { data: observations, isLoading } = useQuery(
     ["observations", stationId],
     () => getStationObservationsJsonLd({ stationId: stationId! }),
     { enabled: !!stationId }
@@ -284,6 +286,15 @@ export const RecentObservationsSection: FC<RecentObservationsSectionProps> = ({
             </Tbody>
           </Table>
         </TableContainer>
+      ) : isLoading ? (
+        <Stack gap={8} padding={8}>
+          <Skeleton height="30px" />
+          <Skeleton height="20px" />
+          <Skeleton height="20px" />
+          <Skeleton height="20px" />
+          <Skeleton height="20px" />
+          <Skeleton height="20px" />
+        </Stack>
       ) : (
         <Text px={8}>{t("recentObservationsSection.noResultsMessage")}</Text>
       )}

@@ -4,6 +4,7 @@ import { Suspense } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { AlertPage } from "./Forecast/AlertPage";
 import { HourlyWeatherPage } from "./Forecast/HourlyWeatherPage";
+import { LocalStationsPage } from "./Forecast/LocalStationsPage";
 import { TodaysWeatherPage } from "./Forecast/TodaysWeatherPage";
 import { GlossaryPage } from "./Glossary/GlossaryPage";
 import { MainLayout } from "./MainLayout";
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
       {
         element: <HourlyWeatherPage />,
         path: "hourly",
+      },
+      {
+        element: <LocalStationsPage />,
+        path: "local-stations",
       },
       {
         element: <OfficePage />,
