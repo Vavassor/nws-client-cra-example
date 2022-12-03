@@ -92,6 +92,7 @@ export const TodaysConditionsSection: FC = () => {
       pressure,
       relativeHumidity,
       visibility,
+
       windDirection,
       windSpeed,
     };

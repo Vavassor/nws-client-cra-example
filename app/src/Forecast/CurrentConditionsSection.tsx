@@ -2,10 +2,12 @@ import { Box, Heading, Text } from "@chakra-ui/react";
 import { useQuery } from "@tanstack/react-query";
 import {
   getGridpointForecastGeoJson,
+  getGridpointGeoJson,
   getQuantitativeValue,
 } from "@vavassor/nws-client";
 import { FC, useMemo } from "react";
 import { Trans, useTranslation } from "react-i18next";
+import { getEmojiByWeatherIconType, getWeatherIcon } from "./getWeatherIcon";
 import { usePoint } from "./usePoint";
 
 export const CurrentConditionsSection: FC = () => {
@@ -18,6 +20,16 @@ export const CurrentConditionsSection: FC = () => {
         forecastOfficeId: point!.properties.gridId,
         gridX: point!.properties.gridX,
         gridY: point!.properties.gridY,
+      }),
+    { enabled: !!point }
+  );
+  const { data: gridpoint } = useQuery(
+    ["gridpoint", point],
+    () =>
+      getGridpointGeoJson({
+        forecastOfficeId: point!.properties.gridId,
+        gridX: point!.properties.gridX.toString(),
+        gridY: point!.properties.gridY.toString(),
       }),
     { enabled: !!point }
   );
@@ -51,6 +63,18 @@ export const CurrentConditionsSection: FC = () => {
     };
   }, [forecast, i18n]);
 
+  const formattedGridpoint = useMemo(() => {
+    if (!gridpoint) {
+      return undefined;
+    }
+
+    const weatherIcon = getEmojiByWeatherIconType(
+      getWeatherIcon(gridpoint.properties, new Date()).type
+    );
+
+    return { weatherIcon };
+  }, [gridpoint]);
+
   return (
     <Box as="section" borderRadius="lg" borderWidth="1px" px={8} py={4}>
       {formattedForecast && (
@@ -68,7 +92,11 @@ export const CurrentConditionsSection: FC = () => {
               ? `${formattedForecast.temperatureFahrenheit} °F`
               : "--"}
           </Text>
-          <Text>{formattedForecast.shortForecast}</Text>
+          <Text>
+            {formattedGridpoint
+              ? `${formattedGridpoint.weatherIcon} ${formattedForecast.shortForecast}`
+              : formattedForecast.shortForecast}
+          </Text>
         </>
       )}
     </Box>
