@@ -1,6 +1,7 @@
 import {
   Box,
   Heading,
+  Show,
   Table,
   TableContainer,
   Tbody,
@@ -8,16 +9,23 @@ import {
   Th,
   Thead,
   Tr,
+  VisuallyHidden,
 } from "@chakra-ui/react";
 import { useQuery } from "@tanstack/react-query";
 import {
   getGridpointForecastHourlyGeoJson,
+  getGridpointGeoJson,
   getQuantitativeValue,
 } from "@vavassor/nws-client";
 import { FC, Fragment, useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { groupBy } from "../Common/ArrayUtilities";
 import { usePoint } from "./usePoint";
+import {
+  getEmojiByWeatherIconType,
+  getWeatherIcon,
+  WeatherIcon,
+} from "./getWeatherIcon";
 
 interface Day {
   name: string;
@@ -28,6 +36,7 @@ interface Period {
   condition: string;
   startTime: string;
   temperature: string;
+  weatherIcon: WeatherIcon;
   wind: string;
 }
 
@@ -43,10 +52,20 @@ const useHourlyForecast = () => {
       }),
     { enabled: !!point }
   );
+  const { data: gridpoint } = useQuery(
+    ["gridpoint", point],
+    () =>
+      getGridpointGeoJson({
+        forecastOfficeId: point!.properties.gridId,
+        gridX: point!.properties.gridX.toString(),
+        gridY: point!.properties.gridY.toString(),
+      }),
+    { enabled: !!point }
+  );
   const { i18n } = useTranslation();
 
   const days = useMemo(() => {
-    if (!forecast) {
+    if (!forecast || !gridpoint) {
       return undefined;
     }
 
@@ -60,6 +79,10 @@ const useHourlyForecast = () => {
         "[degF]"
       ).value;
       const temperature = temperatureValue ? temperatureValue.toString() : "--";
+      const weatherIcon = getWeatherIcon(
+        gridpoint.properties,
+        new Date(period.startTime)
+      );
       const windSpeedValue = getQuantitativeValue(
         period.windSpeed,
         "[mi_i]/h"
@@ -69,6 +92,7 @@ const useHourlyForecast = () => {
         condition: period.shortForecast,
         startTime: period.startTime,
         temperature,
+        weatherIcon,
         wind,
       };
       return hourPeriod;
@@ -84,7 +108,7 @@ const useHourlyForecast = () => {
     }));
 
     return result;
-  }, [forecast, i18n]);
+  }, [forecast, gridpoint, i18n]);
 
   return { city, days, state };
 };
@@ -135,7 +159,19 @@ export const HourlyWeatherSection: FC = () => {
                             {period.temperature} °F
                           </Td>
                           <Td headers={`${dayId} condition`}>
-                            {period.condition}
+                            <Show above="md">
+                              {`${getEmojiByWeatherIconType(
+                                period.weatherIcon.type
+                              )} ${period.condition}`}
+                            </Show>
+                            <Show below="md">
+                              {getEmojiByWeatherIconType(
+                                period.weatherIcon.type
+                              )}
+                              <VisuallyHidden>
+                                {period.condition}
+                              </VisuallyHidden>
+                            </Show>
                           </Td>
                           <Td headers={`${dayId} wind`}>{period.wind} mph</Td>
                         </Tr>
