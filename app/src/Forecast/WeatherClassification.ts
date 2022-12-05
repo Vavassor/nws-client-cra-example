@@ -174,6 +174,14 @@ const getWindSpeedDescription = (windSpeedMph: number) => {
   }
 };
 
+/**
+ * Returns a weight to use for comparing which weather conditions are most
+ * predominant.
+ * 
+ * When a grid has multiple simultaneous weather conditions, like fog, rain,
+ * and sleet, this can be used to determine which is most important to express
+ * in a summary or icon.
+ */
 const getPredominantWeatherWeight = (value: GridpointWeatherValueValue) => {
   return (
     getAttributeWeight(value) *
@@ -183,23 +191,31 @@ const getPredominantWeatherWeight = (value: GridpointWeatherValueValue) => {
 };
 
 const getAttributeWeight = (value: GridpointWeatherValueValue) => {
+  // All below weights are arbitrary. They're roughly based on percent
+  // probability or coverage amount.
   switch (value.coverage) {
-    case "areas":
     case "brief":
-    case "chance":
-    case "definite":
     case "few":
-    case "frequent":
-    case "intermittent":
     case "isolated":
+      return 0.1;
+    case "patchy":
+    case "slight_chance":
+      return 0.2;
+    case "chance":
+    case "intermittent":
+    case "scattered":
+      return 0.3;
+    case "frequent":
     case "likely":
     case "numerous":
-    case "occasional":
-    case "patchy":
-    case "periods":
-    case "scattered":
-    case "slight_chance":
+      return 0.6;
+    case "areas":
     case "widespread":
+      return 0.5;
+    case "definite":
+    case "occasional":
+    case "periods":
+      return 0.8;
     default:
       return 1;
   }
@@ -220,30 +236,36 @@ const getIntensityWeight = (value: GridpointWeatherValueValue) => {
 };
 
 const getWeatherTypeWeight = (value: GridpointWeatherValueValue) => {
+  // All below weights are arbitrary. Obscurations are generally weighted lower
+  // than precipitation.
   switch (value.weather) {
     case "blowing_dust":
     case "blowing_sand":
-    case "blowing_snow":
-    case "drizzle":
     case "fog":
-    case "freezing_drizzle":
     case "freezing_fog":
-    case "freezing_rain":
-    case "freezing_spray":
-    case "frost":
-    case "hail":
     case "haze":
     case "ice_crystals":
     case "ice_fog":
+    case "smoke":
+    case "volcanic_ash":
+      return 0.25;
+    case "blowing_snow":
+    case "drizzle":
+    case "freezing_drizzle":
+    case "freezing_spray":
+    case "frost":
+    case "water_spouts":
+      return 0.5;
+    case "freezing_rain":
     case "rain":
     case "rain_showers":
+      return 0.75;
+    case "hail":
     case "sleet":
-    case "smoke":
     case "snow":
     case "snow_showers":
+      return 0.85;
     case "thunderstorms":
-    case "volcanic_ash":
-    case "water_spouts":
     default:
       return 1;
   }
