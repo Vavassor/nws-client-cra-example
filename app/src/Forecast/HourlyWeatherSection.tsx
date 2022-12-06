@@ -49,6 +49,7 @@ const useHourlyForecast = () => {
         forecastOfficeId: point!.properties.gridId,
         gridX: point!.properties.gridX,
         gridY: point!.properties.gridY,
+        units: "us",
       }),
     { enabled: !!point }
   );
