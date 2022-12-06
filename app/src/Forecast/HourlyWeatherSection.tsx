@@ -26,6 +26,7 @@ import {
   getWeatherIcon,
   WeatherIcon,
 } from "./getWeatherIcon";
+import { format } from "../Common/FormattingUtilities";
 
 interface Day {
   name: string;
@@ -75,20 +76,18 @@ const useHourlyForecast = () => {
     });
 
     const allPeriods = forecast.properties.periods.map((period) => {
-      const temperatureValue = getQuantitativeValue(
-        period.temperature,
+      const temperature = format(
+        getQuantitativeValue(period.temperature, "[degF]"),
         "[degF]"
-      ).value;
-      const temperature = temperatureValue ? temperatureValue.toString() : "--";
+      ).formattedText;
       const weatherIcon = getWeatherIcon(
         gridpoint.properties,
         new Date(period.startTime)
       );
-      const windSpeedValue = getQuantitativeValue(
-        period.windSpeed,
+      const wind = format(
+        getQuantitativeValue(period.windSpeed, "[mi_i]/h"),
         "[mi_i]/h"
-      ).value;
-      const wind = windSpeedValue ? windSpeedValue.toString() : "--";
+      ).formattedValue;
       const hourPeriod: Period = {
         condition: period.shortForecast,
         startTime: period.startTime,
@@ -157,7 +156,7 @@ export const HourlyWeatherSection: FC = () => {
                             }).format(new Date(period.startTime))}
                           </Td>
                           <Td headers={`${dayId} temperature`}>
-                            {period.temperature} °F
+                            {period.temperature}
                           </Td>
                           <Td headers={`${dayId} condition`}>
                             <Show above="md">

@@ -7,6 +7,7 @@ import {
 } from "@vavassor/nws-client";
 import { FC, useMemo } from "react";
 import { Trans, useTranslation } from "react-i18next";
+import { format } from "../Common/FormattingUtilities";
 import { getEmojiByWeatherIconType, getWeatherIcon } from "./getWeatherIcon";
 import { usePoint } from "./usePoint";
 
@@ -20,7 +21,7 @@ export const CurrentConditionsSection: FC = () => {
         forecastOfficeId: point!.properties.gridId,
         gridX: point!.properties.gridX,
         gridY: point!.properties.gridY,
-        units: "us"
+        units: "us",
       }),
     { enabled: !!point }
   );
@@ -51,9 +52,10 @@ export const CurrentConditionsSection: FC = () => {
     const updateTimeIso = properties.updateTime;
 
     const period = properties.periods[0];
-    const temperatureQv = getQuantitativeValue(period.temperature, "[degF]");
-    const temperatureFahrenheit =
-      temperatureQv.value !== null ? temperatureQv.value.toFixed(0) : undefined;
+    const temperatureFahrenheit = format(
+      getQuantitativeValue(period.temperature, "[degF]"),
+      "[degF]"
+    ).formattedText;
     const shortForecast = period.shortForecast;
 
     return {
@@ -88,11 +90,7 @@ export const CurrentConditionsSection: FC = () => {
               </time>
             </Trans>
           </Heading>
-          <Text>
-            {formattedForecast.temperatureFahrenheit
-              ? `${formattedForecast.temperatureFahrenheit} °F`
-              : "--"}
-          </Text>
+          <Text>{formattedForecast.temperatureFahrenheit}</Text>
           <Text>
             {formattedGridpoint
               ? `${formattedGridpoint.weatherIcon} ${formattedForecast.shortForecast}`
