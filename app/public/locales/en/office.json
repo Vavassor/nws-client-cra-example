@@ -7,6 +7,9 @@
     "heading": "Links",
     "latestRelatedTextProductsLink": "Latest related text products"
   },
+  "officePage": {
+    "pageTitle": "NWS Forecast Office {{officeName}}"
+  },
   "officeSummarySection": {
     "contactAddress": "Address {{streetAddress}} {{locality}}, {{region}} {{postalCode}}",
     "contactFaxNumber": "Fax {{faxNumber}}",

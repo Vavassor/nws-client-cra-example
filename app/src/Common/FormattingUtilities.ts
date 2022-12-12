@@ -1,5 +1,6 @@
 import { UcumLhcUtils } from "@lhncbc/ucum-lhc";
-import { getUcumCode, QuantitativeValue } from "@vavassor/nws-client";
+import { QuantitativeValue } from "@vavassor/nws-client";
+import { convertToUnit } from "./ConversionUtilities";
 
 const utils = UcumLhcUtils.getInstance();
 
@@ -16,24 +17,15 @@ export const format = (
   const precision = options?.precision ?? 0;
   const noQuantityPlaceholder = options?.noQuantityPlaceholder ?? "--";
 
-  if (value) {
-    const ucumCode = getUcumCode(value.unitCode);
-    if (ucumCode && value.value !== null) {
-      const convertedValue = utils.convertUnitTo(
-        ucumCode,
-        value.value,
-        toUnitCode
-      );
-      if (convertedValue.toVal) {
-        const formattedValue = convertedValue.toVal.toFixed(precision);
-        const formattedUnit = convertedValue.toUnit.getProperty("printSymbol");
-        return {
-          formattedText: `${formattedValue} ${formattedUnit}`,
-          formattedValue,
-          value: convertedValue.toVal,
-        };
-      }
-    }
+  const convertedValue = convertToUnit(value, toUnitCode);
+  if (convertedValue) {
+    const formattedValue = convertedValue.value.toFixed(precision);
+    const formattedUnit = convertedValue.unitPrintSymbol;
+    return {
+      formattedText: `${formattedValue} ${formattedUnit}`,
+      formattedValue,
+      value: convertedValue.value,
+    };
   }
 
   return {

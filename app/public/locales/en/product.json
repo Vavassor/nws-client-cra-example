@@ -5,6 +5,9 @@
     "issuedByMessage": "Issued by {{issuingOffice}} on <4>{{issuanceTime, datetime}}</4>.",
     "printButtonLabel": "Print"
   },
+  "productsPage": {
+    "pageTitle": "Products"
+  },
   "productsSection": {
     "heading": "Products",
     "officeTableHeader": "Office",

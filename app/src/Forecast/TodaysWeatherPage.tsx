@@ -1,11 +1,16 @@
 import { Container, Grid, GridItem } from "@chakra-ui/react";
 import { SkipNavContent } from "@chakra-ui/skip-nav";
+import { useTranslation } from "react-i18next";
+import { useDocumentTitle } from "../Common/useDocumentTitle";
 import { CurrentConditionsSection } from "./CurrentConditionsSection";
 import { LocalInformationSection } from "./LocalInformationSection";
 import { TodaysConditionsSection } from "./TodaysConditionsSection";
 import { WeatherAlertsSection } from "./WeatherAlertsSection";
 
 export const TodaysWeatherPage = () => {
+  const { t } = useTranslation("forecast");
+  useDocumentTitle(t("todaysWeatherPage.pageTitle"));
+
   return (
     <Container as="main" maxW="container.sm" pt={4}>
       <SkipNavContent />

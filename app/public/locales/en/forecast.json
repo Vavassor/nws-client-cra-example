@@ -1,4 +1,7 @@
 {
+  "alertPage": {
+    "pageTitle": "{{eventName}} issued by {{forecastOfficeName}}"
+  },
   "alertSection": {
     "actionRecommendedHeading": "Action recommended",
     "affectedAreasHeading": "Affected areas",
@@ -10,6 +13,9 @@
   },
   "currentConditionsCard": {
     "heading": "{{city}}, {{state}} as of <5>{{updateTime}}</5>"
+  },
+  "hourlyWeatherPage": {
+    "pageTitle": "Hourly Weather"
   },
   "hourlyWeatherSection": {
     "heading": "Today's Forecast for {{city}}, {{state}}",
@@ -26,6 +32,9 @@
   "localStationsSection": {
     "heading": "Local stations"
   },
+  "localStationsPage": {
+    "pageTitle": "Local stations"
+  },
   "todaysConditionsCard": {
     "dewPoint": "Dew point: {{dewPoint}}",
     "heading": "Weather today in {{city}}, {{state}}",
@@ -35,6 +44,9 @@
     "pressure": "Pressure: {{pressure}}",
     "visibility": "Visibility: {{visibility}}",
     "wind": "Wind: {{direction}} {{speed}}"
+  },
+  "todaysWeatherPage": {
+    "pageTitle": "Today's Weather"
   },
   "weatherAlertsCard": {
     "heading": "Weather Alerts",

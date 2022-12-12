@@ -2,10 +2,11 @@ import { Box, Button, Container, Heading, Text } from "@chakra-ui/react";
 import { SkipNavContent } from "@chakra-ui/skip-nav";
 import { useQuery } from "@tanstack/react-query";
 import { getProduct } from "@vavassor/nws-client";
-import { FC } from "react";
+import { FC, useEffect } from "react";
 import { Trans, useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
 import { saveTextFile } from "../Common/SaveFile";
+import { useDocumentTitle } from "../Common/useDocumentTitle";
 
 export const ProductPage: FC = () => {
   const { productId } = useParams();
@@ -17,6 +18,7 @@ export const ProductPage: FC = () => {
     }
   );
   const { t } = useTranslation("product");
+  const { setDocumentTitle } = useDocumentTitle();
 
   const handleClickCopy = () => {
     if (product?.productText) {
@@ -33,6 +35,12 @@ export const ProductPage: FC = () => {
       saveTextFile(product.productText, `${product.productName}.txt`);
     }
   };
+
+  useEffect(() => {
+    if (product) {
+      setDocumentTitle(product.productName);
+    }
+  }, [product, setDocumentTitle]);
 
   return (
     <Container as="main" maxW="container.sm" pt={4}>

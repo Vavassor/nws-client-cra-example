@@ -12,10 +12,12 @@ import { getGridpointStationsGeoJson } from "@vavassor/nws-client";
 import { FC } from "react";
 import { useTranslation } from "react-i18next";
 import { Link as RouterLink, useSearchParams } from "react-router-dom";
+import { useDocumentTitle } from "../Common/useDocumentTitle";
 
 export const LocalStationsPage: FC = () => {
   const { t } = useTranslation("forecast");
   const [searchParams] = useSearchParams();
+  useDocumentTitle(t("localStationsPage.pageTitle"));
 
   const { data: stations } = useQuery(
     [

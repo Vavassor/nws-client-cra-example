@@ -19,14 +19,20 @@
     "windChillTableHeader": "Wind chill ({{unit}})",
     "windTableHeader": "Wind (<1>{{unit}}</1>)"
   },
+  "stationPage": {
+    "pageTitle": "{{stationName}} station"
+  },
   "stationSection": {
     "countyLink": "{{name}} county",
     "fireWeatherZoneLink": "{{name}} fire weather zone",
     "heading": "{{name}} station"
   },
+  "stationsPage": {
+    "pageTitle": "Observation stations"
+  },
   "stationsSection": {
     "areaFieldLabel": "Area",
-    "heading": "Stations",
+    "heading": "Observation stations",
     "idTableHeader": "ID",
     "loadMoreButtonLabel": "Load more",
     "nameTableHeader": "Name",
