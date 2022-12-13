@@ -1,4 +1,7 @@
 {
+  "recentObservationsPage": {
+    "pageTitle": "Recent observations • {{stationName}} station"
+  },
   "recentObservationsSection": {
     "airTemperatureTableHeader": "Air",
     "barometricPressureTableHeader": "Barometric (<1>{{unit}}</1>)",
@@ -13,6 +16,7 @@
     "pressureTableHeader": "Pressure",
     "relativeHumidityTableHeader": "Relative Humidity ({{unit}})",
     "seaLevelPressureTableHeader": "Sea level (<1>{{unit}}</1>)",
+    "stationLink": "{{stationName}} station",
     "temperatureTableHeader": "Temperature ({{unit}})",
     "timeTableHeader": "Time",
     "visibilityTableHeader": "Visibility (<1>{{unit}}</1>)",
@@ -25,7 +29,9 @@
   "stationSection": {
     "countyLink": "{{name}} county",
     "fireWeatherZoneLink": "{{name}} fire weather zone",
-    "heading": "{{name}} station"
+    "forecastZoneLink": "{{name}} forecast zone",
+    "heading": "{{name}} station",
+    "recentObservationsLink": "Recent observations"
   },
   "stationsPage": {
     "pageTitle": "Observation stations"

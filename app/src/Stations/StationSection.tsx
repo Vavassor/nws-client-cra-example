@@ -20,6 +20,11 @@ export const StationSection: FC<StationSectionProps> = ({ stationId }) => {
     () => getZoneByUriJsonLd({ uri: station!.fireWeatherZone }),
     { enabled: !!station }
   );
+  const { data: forecastZone } = useQuery(
+    ["zones", station?.forecast],
+    () => getZoneByUriJsonLd({ uri: station!.forecast }),
+    { enabled: !!station }
+  );
   const { data: county } = useQuery(
     ["zones", station?.county],
     () => getZoneByUriJsonLd({ uri: station!.county }),
@@ -29,7 +34,7 @@ export const StationSection: FC<StationSectionProps> = ({ stationId }) => {
 
   return (
     <Box as="section" borderRadius="lg" borderWidth="1px" py={4}>
-      {!!station && !!fireWeatherZone && !!county && (
+      {!!station && !!fireWeatherZone && !!forecastZone && !!county && (
         <>
           <Heading as="h1" px={8} size="lg">
             {t("stationSection.heading", { name: station.name })}
@@ -52,6 +57,26 @@ export const StationSection: FC<StationSectionProps> = ({ stationId }) => {
             {t("stationSection.fireWeatherZoneLink", {
               name: fireWeatherZone.name,
             })}
+          </Link>
+          <br />
+          <Link
+            as={RouterLink}
+            mx={8}
+            to={`/zones/${forecastZone.type}/${forecastZone.id}`}
+          >
+            {t("stationSection.forecastZoneLink", {
+              name: forecastZone.name,
+            })}
+          </Link>
+          <br />
+          <br />
+          <Link
+            as={RouterLink}
+            fontSize="lg"
+            mx={8}
+            to={`/stations/${stationId}/recentObservations`}
+          >
+            {t("stationSection.recentObservationsLink")}
           </Link>
         </>
       )}

@@ -1,6 +1,7 @@
 import {
   Box,
   Heading,
+  Link,
   Skeleton,
   Stack,
   Table,
@@ -13,9 +14,13 @@ import {
   Tr,
 } from "@chakra-ui/react";
 import { useQuery } from "@tanstack/react-query";
-import { getStationObservationsJsonLd } from "@vavassor/nws-client";
+import {
+  getStationJsonLd,
+  getStationObservationsJsonLd,
+} from "@vavassor/nws-client";
 import { FC, useMemo, useState } from "react";
 import { Trans, useTranslation } from "react-i18next";
+import { Link as RouterLink } from "react-router-dom";
 import {
   format,
   formatWindSpeedAndDirection,
@@ -37,6 +42,11 @@ export const RecentObservationsSection: FC<RecentObservationsSectionProps> = ({
   const { data: observations, isLoading } = useQuery(
     ["observations", stationId],
     () => getStationObservationsJsonLd({ stationId: stationId! }),
+    { enabled: !!stationId }
+  );
+  const { data: station } = useQuery(
+    ["stations", stationId],
+    () => getStationJsonLd({ stationId: stationId! }),
     { enabled: !!stationId }
   );
   const { i18n, t } = useTranslation("station");
@@ -133,10 +143,21 @@ export const RecentObservationsSection: FC<RecentObservationsSectionProps> = ({
   }, [observations, units]);
 
   return (
-    <Box as="section" borderRadius="lg" borderWidth="1px" py={4}>
-      <Heading as="h2" px={8} size="lg">
-        {t("recentObservationsSection.heading")}
-      </Heading>
+    <Box as="section" pt={4}>
+      <Box>
+        <Heading as="h2" px={8} size="lg">
+          {t("recentObservationsSection.heading")}
+        </Heading>
+        <Link
+          as={RouterLink}
+          px={8}
+          to={`/stations/${station?.stationIdentifier}`}
+        >
+          {t("recentObservationsSection.stationLink", {
+            stationName: station?.name,
+          })}
+        </Link>
+      </Box>
       {!!formattedObservations && formattedObservations.length > 0 ? (
         <TableContainer>
           <Table variant="striped">

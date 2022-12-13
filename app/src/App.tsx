@@ -12,6 +12,7 @@ import { OfficePage } from "./Office/OfficePage";
 import { ProductPage } from "./Product/ProductPage";
 import { ProductsPage } from "./Product/ProductsPage";
 import { RadarStationPage } from "./Radar/RadarStationPage";
+import { RecentObservationsPage } from "./Stations/RecentObservationsPage";
 import { StationPage } from "./Stations/StationPage";
 import { StationsPage } from "./Stations/StationsPage";
 import { ZonePage } from "./Zone/ZonePage";
@@ -65,6 +66,10 @@ const router = createBrowserRouter([
       {
         element: <StationPage />,
         path: "stations/:stationId",
+      },
+      {
+        element: <RecentObservationsPage />,
+        path: "stations/:stationId/recentObservations",
       },
       {
         element: <ZonesPage />,
