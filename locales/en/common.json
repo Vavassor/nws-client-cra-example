@@ -1,0 +1,15 @@
+{
+  "mainHeader": {
+    "appName": "Weather",
+    "menuButtonLabel": "Menu",
+    "skipLinkLabel": "Skip to content"
+  },
+  "mainNavigation": {
+    "glossaryLink": "Glossary",
+    "hourlyWeatherLink": "Hourly",
+    "productsLink": "Products",
+    "stationsLink": "Stations",
+    "todaysWeatherLink": "Today",
+    "zonesLink": "Zones"
+  }
+}

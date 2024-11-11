@@ -1,0 +1,8 @@
+{
+  "radarStationPage": {
+    "pageTitle": "{{stationName}} radar station"
+  },
+  "radarStationSection": {
+    "stationType": "Station type: {{type}}"
+  }
+}

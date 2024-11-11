@@ -1,0 +1,20 @@
+{
+  "productPage": {
+    "copyTextButtonLabel": "Copy text",
+    "downloadButtonLabel": "Download",
+    "issuedByMessage": "Issued by {{issuingOffice}} on <4>{{issuanceTime, datetime}}</4>.",
+    "printButtonLabel": "Print"
+  },
+  "productsPage": {
+    "pageTitle": "Products"
+  },
+  "productsSection": {
+    "heading": "Products",
+    "officeTableHeader": "Office",
+    "nameTableHeader": "Name",
+    "noResultsMessage": "No products found.",
+    "searchButtonLabel": "Search",
+    "timeTableHeader": "Time",
+    "typeFieldLabel": "Type"
+  }
+}

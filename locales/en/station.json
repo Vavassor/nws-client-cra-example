@@ -1,0 +1,48 @@
+{
+  "recentObservationsPage": {
+    "pageTitle": "Recent observations • {{stationName}} station"
+  },
+  "recentObservationsSection": {
+    "airTemperatureTableHeader": "Air",
+    "barometricPressureTableHeader": "Barometric (<1>{{unit}}</1>)",
+    "dewPointTemperatureTableHeader": "Dew point",
+    "forecastTableHeader": "Forecast",
+    "heading": "Recent observations",
+    "heatIndexTableHeader": "Heat index ({{unit}})",
+    "maxTemperatureLast24HoursTableHeader": "24 hr max",
+    "minTemperatureLast24HoursTableHeader": "24 hr min",
+    "noResultsMessage": "No recent observations.",
+    "precipitationTableHeader": "Precipitation (<1>{{unit}}</1>)",
+    "pressureTableHeader": "Pressure",
+    "relativeHumidityTableHeader": "Relative Humidity ({{unit}})",
+    "seaLevelPressureTableHeader": "Sea level (<1>{{unit}}</1>)",
+    "stationLink": "{{stationName}} station",
+    "temperatureTableHeader": "Temperature ({{unit}})",
+    "timeTableHeader": "Time",
+    "visibilityTableHeader": "Visibility (<1>{{unit}}</1>)",
+    "windChillTableHeader": "Wind chill ({{unit}})",
+    "windTableHeader": "Wind (<1>{{unit}}</1>)"
+  },
+  "stationPage": {
+    "pageTitle": "{{stationName}} station"
+  },
+  "stationSection": {
+    "countyLink": "{{name}} county",
+    "fireWeatherZoneLink": "{{name}} fire weather zone",
+    "forecastZoneLink": "{{name}} forecast zone",
+    "heading": "{{name}} station",
+    "recentObservationsLink": "Recent observations"
+  },
+  "stationsPage": {
+    "pageTitle": "Observation stations"
+  },
+  "stationsSection": {
+    "areaFieldLabel": "Area",
+    "heading": "Observation stations",
+    "idTableHeader": "ID",
+    "loadMoreButtonLabel": "Load more",
+    "nameTableHeader": "Name",
+    "noStationsMessage": "No stations found.",
+    "searchButtonLabel": "Search"
+  }
+}

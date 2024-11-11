@@ -1,0 +1,28 @@
+{
+  "zoneAlertsSection": {
+    "heading": "Weather alerts",
+    "noAlertsMessage": "No weather alerts."
+  },
+  "zoneForecastSection": {
+    "heading": "Forecast as of <1>{{updateTime}}</1>",
+    "noForecastMessage": "No forecast available."
+  },
+  "zonePage": {
+    "pageTitle": "{{zoneName}} zone"
+  },
+  "zoneSection": {
+    "forecastOfficesHeading": "Forecast offices",
+    "radarStationLink": "Radar station {{radarStationId}}",
+    "zoneId": "Zone ID: {{id}}"
+  },
+  "zonesPage": {
+    "pageTitle": "Zones"
+  },
+  "zonesSection": {
+    "heading": "Zones",
+    "idTableHeader": "ID",
+    "nameTableHeader": "Name",
+    "stateTableHeader": "State",
+    "typeTableHeader": "Type"
+  }
+}

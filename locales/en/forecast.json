@@ -1,0 +1,55 @@
+{
+  "alertPage": {
+    "pageTitle": "{{eventName}} issued by {{forecastOfficeName}}"
+  },
+  "alertSection": {
+    "actionRecommendedHeading": "Action recommended",
+    "affectedAreasHeading": "Affected areas",
+    "descriptionHeading": "Description",
+    "downloadCapXmlButtonLabel": "Download CAP XML",
+    "effectiveTimeRange": "Effective {{timeRange}}",
+    "issuedByHeading": "Issued by",
+    "summaryHeading": "Summary"
+  },
+  "currentConditionsCard": {
+    "heading": "{{city}}, {{state}} as of <5>{{updateTime}}</5>"
+  },
+  "hourlyWeatherPage": {
+    "pageTitle": "Hourly Weather"
+  },
+  "hourlyWeatherSection": {
+    "heading": "Today's Forecast for {{city}}, {{state}}",
+    "shortForecastTableHeader": "Condition",
+    "temperatureTableHeader": "Temperature",
+    "timeTableHeader": "Time",
+    "windTableHeader": "Wind"
+  },
+  "localInformationCard": {
+    "forecastOfficeLink": "Local forecast office",
+    "heading": "Local Information",
+    "stationsLink": "Nearby observation stations"
+  },
+  "localStationsSection": {
+    "heading": "Local stations"
+  },
+  "localStationsPage": {
+    "pageTitle": "Local stations"
+  },
+  "todaysConditionsCard": {
+    "dewPoint": "Dew point: {{dewPoint}}",
+    "heading": "Weather today in {{city}}, {{state}}",
+    "humidity": "Humidity: {{humidity}}",
+    "lowAndHighTemperature": "Low / High: {{min}} / {{max}}",
+    "precipitation": "Precipitation: {{percentage}}",
+    "pressure": "Pressure: {{pressure}}",
+    "visibility": "Visibility: {{visibility}}",
+    "wind": "Wind: {{direction}} {{speed}}"
+  },
+  "todaysWeatherPage": {
+    "pageTitle": "Today's Weather"
+  },
+  "weatherAlertsCard": {
+    "heading": "Weather Alerts",
+    "noAlertsMessage": "No weather alerts."
+  }
+}
