@@ -2,7 +2,7 @@
   "name": "create-react-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://vavassor.github.io",
+  "homepage": "https://vavassor.github.io/nws-client-cra-example",
   "dependencies": {
     "@chakra-ui/react": "^2.3.7",
     "@chakra-ui/skip-nav": "^2.0.11",

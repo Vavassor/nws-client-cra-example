@@ -20,70 +20,73 @@ import { ZonesPage } from "./Zone/ZonesPage";
 
 const queryClient = new QueryClient();
 
-const router = createBrowserRouter([
-  {
-    children: [
-      {
-        element: <TodaysWeatherPage />,
-        index: true,
-      },
-      {
-        element: <AlertPage />,
-        path: "alerts/:alertId",
-      },
-      {
-        element: <GlossaryPage />,
-        path: "glossary",
-      },
-      {
-        element: <HourlyWeatherPage />,
-        path: "hourly",
-      },
-      {
-        element: <LocalStationsPage />,
-        path: "local-stations",
-      },
-      {
-        element: <OfficePage />,
-        path: "offices/:officeId",
-      },
-      {
-        element: <ProductsPage />,
-        path: "products",
-      },
-      {
-        element: <ProductPage />,
-        path: "products/:productId",
-      },
-      {
-        element: <RadarStationPage />,
-        path: "radarStations/:stationId",
-      },
-      {
-        element: <StationsPage />,
-        path: "stations",
-      },
-      {
-        element: <StationPage />,
-        path: "stations/:stationId",
-      },
-      {
-        element: <RecentObservationsPage />,
-        path: "stations/:stationId/recentObservations",
-      },
-      {
-        element: <ZonesPage />,
-        path: "zones",
-      },
-      {
-        element: <ZonePage />,
-        path: "zones/:type/:zoneId",
-      },
-    ],
-    element: <MainLayout />,
-    path: "/",
-  },
-]);
+const router = createBrowserRouter(
+  [
+    {
+      children: [
+        {
+          element: <TodaysWeatherPage />,
+          index: true,
+        },
+        {
+          element: <AlertPage />,
+          path: "alerts/:alertId",
+        },
+        {
+          element: <GlossaryPage />,
+          path: "glossary",
+        },
+        {
+          element: <HourlyWeatherPage />,
+          path: "hourly",
+        },
+        {
+          element: <LocalStationsPage />,
+          path: "local-stations",
+        },
+        {
+          element: <OfficePage />,
+          path: "offices/:officeId",
+        },
+        {
+          element: <ProductsPage />,
+          path: "products",
+        },
+        {
+          element: <ProductPage />,
+          path: "products/:productId",
+        },
+        {
+          element: <RadarStationPage />,
+          path: "radarStations/:stationId",
+        },
+        {
+          element: <StationsPage />,
+          path: "stations",
+        },
+        {
+          element: <StationPage />,
+          path: "stations/:stationId",
+        },
+        {
+          element: <RecentObservationsPage />,
+          path: "stations/:stationId/recentObservations",
+        },
+        {
+          element: <ZonesPage />,
+          path: "zones",
+        },
+        {
+          element: <ZonePage />,
+          path: "zones/:type/:zoneId",
+        },
+      ],
+      element: <MainLayout />,
+      path: "/",
+    },
+  ],
+  { basename: "/nws-client-cra-example" }
+);
 
 function App() {
   return (

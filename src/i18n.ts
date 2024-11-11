@@ -8,6 +8,9 @@ i18n
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
+    backend: {
+      loadPath: '/nws-client-cra-example/locales/{{lng}}/{{ns}}.json',
+    },
     debug: true,
     defaultNS: "common",
     fallbackLng: "en",
