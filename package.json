@@ -1,32 +1,67 @@
 {
-  "name": "nws-client-cra-example",
-  "version": "1.0.0",
-  "description": "This repository contains a deployment of the Create React App example project in the [NWS client examples repository](https://github.com/Vavassor/nws-client-examples).",
-  "main": "server.js",
-  "scripts": {
-    "build": "cd app && yarn build",
-    "install": "cd app && yarn install",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
-    "start-app": "cd app && yarn start",
-    "start:dev": "concurrently \"nodemon --ignore 'app/*'\" \"yarn start-app\""
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Vavassor/nws-client-cra-example.git"
-  },
-  "author": "Andrew Dawson <dawso.andrew@gmail.com>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/Vavassor/nws-client-cra-example/issues"
-  },
-  "homepage": "https://github.com/Vavassor/nws-client-cra-example#readme",
+  "name": "create-react-app",
+  "version": "0.1.0",
+  "private": true,
+  "homepage": "https://vavassor.github.io",
   "dependencies": {
-    "express": "^4.18.2"
+    "@chakra-ui/react": "^2.3.7",
+    "@chakra-ui/skip-nav": "^2.0.11",
+    "@emotion/react": "^11",
+    "@emotion/styled": "^11",
+    "@lhncbc/ucum-lhc": "^4.1.6",
+    "@tanstack/react-query": "^4.13.4",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.2.1",
+    "@types/jest": "^27.0.1",
+    "@types/node": "^16.7.13",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "@vavassor/nws-client": "^0.7.0",
+    "dayjs": "^1.11.6",
+    "file-saver": "^2.0.5",
+    "framer-motion": "^6",
+    "gh-pages": "^6.2.0",
+    "i18next": "^22.0.4",
+    "i18next-browser-languagedetector": "^7.0.1",
+    "i18next-http-backend": "^2.0.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-hook-form": "^7.39.3",
+    "react-i18next": "^12.0.0",
+    "react-router-dom": "^6.4.3",
+    "react-scripts": "5.0.1",
+    "typescript": "^4.4.2",
+    "web-vitals": "^2.1.0"
   },
+  "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "packageManager": "yarn@3.2.4",
   "devDependencies": {
-    "concurrently": "^7.6.0",
-    "nodemon": "^2.0.20"
-  },
-  "packageManager": "yarn@3.3.0"
+    "@types/file-saver": "^2.0.5"
+  }
 }
